@@ -5,7 +5,11 @@ public class Main {
 
         Deck deckOfCards = new Deck();
         deckOfCards.fullDeckOfCards();
+        deckOfCards.shuffleDeck();
         System.out.println(deckOfCards);
+
+
+
 
 
     }
