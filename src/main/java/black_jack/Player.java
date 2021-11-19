@@ -7,6 +7,15 @@ public class Player {
     private String name;
     private int score;
     private List<Card>playerDeck = new ArrayList<>();
+    private Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public Player(String name, int score) {
         this.name = name;
