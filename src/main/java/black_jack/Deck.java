@@ -61,9 +61,10 @@ public class Deck {
     /*
      * a method to draw to from a deck of cards
      */
-    public void drawFromDeck(Deck card){
-        cards.add(card.Cardgetter(0));
-        card.Cardremover(0);
+    public void drawFromDeck(Player player){
+       var card = cards.get(0);
+       player.addCard(card);
+       cards.remove(card);
     }
 
     /*
@@ -71,35 +72,6 @@ public class Deck {
      */
     public int getSizeOfDeck(){
         return cards.size();
-    }
-
-    /*
-     * a method to get the value of a hand
-     * Note: the value of the ace must be checked because two aces
-     *          will sum up to 22 which is out of bounds
-     * This method returns the total of deck in hand
-     */
-    public int getValueOfHand(){
-        int value = 0;
-        for (Card card : cards){
-            switch (card.getValue()){
-                case Ace -> {value += 11; break;}
-                case Two -> {value += 2; break;}
-                case Three -> {value += 3; break;}
-                case Four -> {value += 4; break;}
-                case Five -> {value += 5; break;}
-                case Six -> {value += 6; break;}
-                case Seven -> {value += 7; break;}
-                case Eight -> {value += 8; break;}
-                case Nine -> {value += 9; break;}
-                case Ten -> {value += 10; break;}
-                case Jack -> {value += 10; break;}
-                case Queen -> {value += 10; break;}
-                case King -> {value += 10; break;}
-            }
-
-        }
-        return value;
     }
 
     @Override
