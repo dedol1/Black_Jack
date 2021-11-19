@@ -1,8 +1,8 @@
 package black_jack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class Deck {
     /*
@@ -33,19 +33,7 @@ public class Deck {
      * a method to shuffle the deck of cards
      */
     public void shuffleDeck(){
-        List<Card> shuffledCards = new ArrayList<>();
-        // Using random
-        Random random = new Random();
-        int randomCardIndex = 0;
-//        int sizeOfOriginalCardDeck = cards.size();
-        for (int i = 0; i < cards.size(); i++){
-            randomCardIndex = random.nextInt((cards.size() -1) - 0) + 0;
-
-            // adding to new deck based on the random index generated
-            shuffledCards.add(cards.get(randomCardIndex));
-
-        }
-        cards = shuffledCards;
+        Collections.shuffle(cards);
     }
 
     /*
@@ -78,11 +66,50 @@ public class Deck {
         card.Cardremover(0);
     }
 
+    /*
+     * a method to return the size of a deck
+     */
+    public int getSizeOfDeck(){
+        return cards.size();
+    }
+
+    /*
+     * a method to get the value of a hand
+     * Note: the value of the ace must be checked because two aces
+     *          will sum up to 22 which is out of bounds
+     * This method returns the total of deck in hand
+     */
+    public int getValueOfHand(){
+        int value = 0;
+        for (Card card : cards){
+            switch (card.getValue()){
+                case Ace -> {value += 11; break;}
+                case Two -> {value += 2; break;}
+                case Three -> {value += 3; break;}
+                case Four -> {value += 4; break;}
+                case Five -> {value += 5; break;}
+                case Six -> {value += 6; break;}
+                case Seven -> {value += 7; break;}
+                case Eight -> {value += 8; break;}
+                case Nine -> {value += 9; break;}
+                case Ten -> {value += 10; break;}
+                case Jack -> {value += 10; break;}
+                case Queen -> {value += 10; break;}
+                case King -> {value += 10; break;}
+            }
+
+        }
+        return value;
+    }
+
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Deck{");
-        sb.append("cards=").append(cards);
-        sb.append('}');
-        return sb.toString();
+      String listOfCardsOuput = "";
+      int i = 0;
+      for (Card card : cards){
+          listOfCardsOuput += "\n" + i + "-" + card.toString();
+          i++;
+      }
+      return  listOfCardsOuput;
     }
 }

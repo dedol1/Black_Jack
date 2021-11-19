@@ -6,7 +6,10 @@ public class Main {
         Deck deckOfCards = new Deck();
         deckOfCards.fullDeckOfCards();
         deckOfCards.shuffleDeck();
-        System.out.println(deckOfCards);
+        var n = deckOfCards.getValueOfHand();
+
+//        System.out.println(deckOfCards);
+        System.out.println(n);
 
 
 
