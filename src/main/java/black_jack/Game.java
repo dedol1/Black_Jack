@@ -40,16 +40,17 @@ public class Game {
 
         for(Player player : listOfPlayers){
             if(player.getTotalValueAtHand() < 17) {
+                System.out.println(player.getName() +" hit with the score " + player.getTotalValueAtHand());
                 deck.drawFromDeck(player);
-                System.out.println("You hit");
             }
-            else if(player.getTotalValueAtHand() > 17){
-                System.out.println("You stick");
+            else if (player.getTotalValueAtHand() > 17 && player.getTotalValueAtHand() < 21){
+                System.out.println(player.getName() +" stick with the score " + player.getTotalValueAtHand());
             }
             else if(player.getTotalValueAtHand() > 21){
+                System.out.println(player.getName() +" busted with the score" + player.getTotalValueAtHand());
                 listOfPlayers.remove(player);
-                System.out.println("Busted");
             }
+
         }
 
     }
