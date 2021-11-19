@@ -21,6 +21,12 @@ public class Game {
      */
 
     public void startGame(){
+        System.out.println("|||||||||||||||||||||||||||||||||||||||||||");
+        System.out.println("|||||||||||||||||||||||||||||||||||||||||||");
+        System.out.println("------WELCOME TO OUR BLACK JACK GAME-------");
+        System.out.println("|||||||||||||||||||||||||||||||||||||||||||");
+        System.out.println("|||||||||||||||||||||||||||||||||||||||||||\n\n\n");
+
         // creating a full deck of cards
         deck.fullDeckOfCards();
 
