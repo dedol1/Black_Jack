@@ -21,6 +21,7 @@ public class Game {
      */
 
     public void startGame(){
+
         System.out.println("|||||||||||||||||||||||||||||||||||||||||||");
         System.out.println("|||||||||||||||||||||||||||||||||||||||||||");
         System.out.println("------WELCOME TO OUR BLACK JACK GAME-------");
@@ -38,26 +39,60 @@ public class Game {
             for (int i = 0; i < 2; i++){
                 deck.drawFromDeck(player);
             }
-        }
+        } //end of for loop
 
         /*
          * check which players are still in the game or not
          */
 
-        for(Player player : listOfPlayers){
-            if(player.getTotalValueAtHand() < 17) {
-                System.out.println(player.getName() +" hit with the score " + player.getTotalValueAtHand());
-                deck.drawFromDeck(player);
+            for(Player player : listOfPlayers){
+                if(player.getTotalValueAtHand() < 17) {
+                    player.setStatus(Status.hit);
+                    System.out.println("You have in your hand " + player.getPlayerDeck());
+                    System.out.println(player.getName() +" hit with the score " + player.getTotalValueAtHand());
+                    deck.drawFromDeck(player);
+
+                }
+                else if (player.getTotalValueAtHand() > 17 && player.getTotalValueAtHand() < 21){
+                    player.setStatus(Status.stick);
+                    System.out.println("You have in your hand " + player.getPlayerDeck());
+                    System.out.println(player.getName() +" stick with the score " + player.getTotalValueAtHand());
+                }
+                else if(player.getTotalValueAtHand() > 21){
+                    player.setStatus(Status.bust);
+                    System.out.println("You have in your hand " + player.getPlayerDeck());
+                    System.out.println(player.getName() +" busted with the score" + player.getTotalValueAtHand());
+                    listOfPlayers.remove(player);
+                }
+            } // end of for loop
+
+        //getting all players who have a total value of 21
+        var exactlyTwentyOne = listOfPlayers.stream()
+                .filter(player -> player.getTotalValueAtHand() == 21);
+
+            // getting all players who have stick
+            var playersThatStick = listOfPlayers
+                    .stream()
+                    .filter(s -> s.getTotalValueAtHand() >= 17 && s.getTotalValueAtHand() < 21);
+
+            // keeping the game in a loop
+        while (listOfPlayers.size() > 0){
+
+            if (listOfPlayers.contains(exactlyTwentyOne)){
+                break;
+                //TODO
             }
-            else if (player.getTotalValueAtHand() > 17 && player.getTotalValueAtHand() < 21){
-                System.out.println(player.getName() +" stick with the score " + player.getTotalValueAtHand());
-            }
-            else if(player.getTotalValueAtHand() > 21){
-                System.out.println(player.getName() +" busted with the score" + player.getTotalValueAtHand());
-                listOfPlayers.remove(player);
+
+            else if (listOfPlayers == playersThatStick){
+                break;
+                //TODO
             }
 
         }
 
     }
+
+
+
+
 }
