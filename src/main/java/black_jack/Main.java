@@ -20,7 +20,6 @@ public class Main {
         Player player1 = new Player("theo", 100);
         Player player2 = new Player("Hello",400);
 
-        System.out.println(player.getTotalValueAtHand());
 
         List<Player> playerList = new ArrayList<>();
         playerList.add(player);
