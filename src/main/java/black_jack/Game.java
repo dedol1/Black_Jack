@@ -41,7 +41,7 @@ public class Game {
         for(Player player : listOfPlayers){
             if(player.getTotalValueAtHand() < 17) {
                 deck.drawFromDeck(player);
-                System.out.println("You hit");
+                System.out.println("You hit " + player.getName());
             }
             else if(player.getTotalValueAtHand() > 17){
                 System.out.println("You stick");

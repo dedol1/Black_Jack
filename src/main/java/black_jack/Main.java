@@ -8,21 +8,18 @@ public class Main {
 
         Deck deckOfCards = new Deck();
         deckOfCards.fullDeckOfCards();
-        deckOfCards.shuffleDeck();
 //        var n = deckOfCards.getValueOfHand();
 
 //        System.out.println(deckOfCards);
 //        System.out.println(n);
-        List<Card> cardList = List.of(
-                    new Card(Suit.Hearts,CardValue.Ace),
-                    new Card(Suit.Hearts,CardValue.Ace)
-        );
-        Player player = new Player();
-        Player player1 = new Player();
-        Player player2 = new Player();
-        player.setPlayerDeck(cardList);
-        player1.setPlayerDeck(cardList);
-        player2.setPlayerDeck(cardList);
+//        List<Card> cardList = List.of(
+//                    new Card(Suit.Hearts,CardValue.Ace),
+//                    new Card(Suit.Hearts,CardValue.Ace)
+//        );
+        Player player = new Player("samuel",200);
+        Player player1 = new Player("theo", 100);
+        Player player2 = new Player("Hello",400);
+
         System.out.println(player.getTotalValueAtHand());
 
         List<Player> playerList = new ArrayList<>();

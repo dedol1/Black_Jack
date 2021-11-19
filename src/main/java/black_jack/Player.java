@@ -7,34 +7,25 @@ public class Player {
     private String name;
     private int score;
     private List<Card>playerDeck = new ArrayList<>();
-    Deck deck;
 
+    public Player(String name, int score) {
+        this.name = name;
+        this.score = score;
+    }
     /*
-     * getters and setters for the fields
+     * getters for the fields
      */
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getScore() {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
-
     public List<Card> getPlayerDeck() {
         return playerDeck;
-    }
-
-    public void setPlayerDeck(List<Card> playerDeck) {
-        this.playerDeck = playerDeck;
     }
 
     public void addCard(Card card){
